@@ -18,13 +18,11 @@ public class DaoTools {
     }
     public static boolean checkLogin(UserInfo user){
         //在只验证用户名是否存在
-        System.out.println("yo"+user.getName());
-        boolean tt = userDB.containsKey(user.getName());
-        System.out.println(tt);
         if(userDB.containsKey(user.getName())){
+            System.out.println(user.getName()+"用户验证失败！");
             return true;
         }
-        System.out.println(user.getName()+"用户验证失败！");
+        System.out.println(user.getName()+"用户验证成功！");
         return  false;
     }
 }

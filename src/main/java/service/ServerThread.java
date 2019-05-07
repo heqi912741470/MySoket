@@ -44,7 +44,7 @@ public class ServerThread extends Thread{
         user.setPassword(pwd);
         //调用数据库，验证用户信息是否存在
         boolean loginState = DaoTools.checkLogin(user);
-        if(!loginState){
+        if(loginState){
             //如果不存在这个账号则关闭
             this.closeMe();
             return;
@@ -57,6 +57,7 @@ public class ServerThread extends Thread{
             input = brd.readLine();
         }
         ChatTools.castMsg(this.user,"bye");
+        ChatTools.castMsg(this.user,"你已下线");
         this.closeMe();
     }
     //关闭肚囊谦客户机与服务器的连接
